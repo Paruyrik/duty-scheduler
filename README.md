@@ -26,3 +26,21 @@ A professional Systems Administration & Operations Portal built with **Next.js**
    ```bash
    git clone [https://github.com/yourusername/scheduling-pro.git](https://github.com/yourusername/scheduling-pro.git)
    cd scheduling-pro
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+To run the app in development mode (with Hot Module Replacement):
+```bash
+npm run dev
+
+# 1. Clean previous builds
+npm run clean
+
+# 2. Export Next.js frontend to /dist/frontend
+npm run build
+
+# Cleans, builds frontend, and creates Mac distribution
+npm run dist:mac
