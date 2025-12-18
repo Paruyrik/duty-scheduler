@@ -1,14 +1,7 @@
 
 # Scheduling Pro 📅
 
-A professional Systems Administration & Operations Portal built with **Next.js**, **Electron**, and **Chakra UI**. This application provides a high-performance desktop experience for managing departments, employees, and generating automated schedules.
-
-## 🚀 Features
-
-- **Management Suite**: Administer Departments, Sub-Departments, Roles, and Employees.
-- **Schedule Generator**: Automated shift creation and weekly rotation logic.
-- **Desktop Integration**: Secure administrator access via Electron's IPC bridge.
-- **Modern UI**: Clean, accessible interface powered by Chakra UI and Lucide icons.
+A professional Systems Administration & Operations Portal built with **Next.js**, **Electron**, and **Chakra UI**. 
 
 ---
 
@@ -16,7 +9,6 @@ A professional Systems Administration & Operations Portal built with **Next.js**
 
 - **Frontend**: Next.js (Static Export), TypeScript, Chakra UI v3.
 - **Desktop**: Electron (IPC Communication, Secure Main/Renderer separation).
-- **Icons**: Lucide React.
 - **State/Auth**: Custom IPC-based authentication system.
 
 ---
