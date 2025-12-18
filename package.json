@@ -1,0 +1,107 @@
+{
+  "name": "scheduling_pro",
+  "displayName": "Scheduling Pro",
+  "version": "11.0.1",
+  "description": "Scheduling Pro",
+  "private": false,
+  "license": "MIT",
+  "main": "dist/backend/index.js",
+  "scripts": {
+    "dev": "yarn build:backend && electron . --dev",
+    "lint": "next lint",
+    "clear": "rimraf out && rimraf dist",
+    "build:frontend": "next build src",
+    "build:backend": "tsc -p backend",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:win": "npm run build && electron-builder --win",
+    "postinstall": "electron-builder install-app-deps",
+    "update:readme": "tsx scripts/update-readme.js",
+    "dist:clear": "yarn clear && yarn build && electron-builder",
+    "build:next": "next build",
+    "build:electron": "electron-builder",
+    "build:all": "npm run build:next && npm run build:electron",
+    "dist:mac": "npm run clear && npm run build && electron-builder --mac",
+    "dist:win": "yarn clear && yarn build && electron-builder --win",
+    "dist": "npm run clear && npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.30.0",
+    "@emotion/react": "^11.14.0",
+    "app-root-path": "^3.1.0",
+    "bcrypt": "^6.0.0",
+    "chakra-dayzed-datepicker": "^3.0.0",
+    "electron-log": "^5.4.1",
+    "lucide-react": "^0.556.0",
+    "next-themes": "^0.4.6",
+    "react-icons": "^5.5.0",
+    "sc-prepare-next": "^1.0.3",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^24.0.15",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "electron": "^37.2.3",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.2",
+    "i": "^0.3.7",
+    "next": "15.4.2",
+    "npm": "^11.6.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rimraf": "^6.0.1",
+    "sequelize-cli": "^6.6.3",
+    "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  },
+  "build": {
+    "appId": "com.saulocosta.schedulerpro",
+    "productName": "Scheduler Pro",
+    "copyright": "Copyright © 2025 ${author}",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/backend/**/*",
+      "dist/frontend/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icons/icon.icns",
+      "category": "public.app-category.business",
+      "artifactName": "${productName}-Setup-${version}.${ext}",
+      "hardenedRuntime": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "linux": {
+      "target": "AppImage",
+      "artifactName": "${productName}-Setup-${version}-linux-${arch}.${ext}"
+    }
+  }
+}

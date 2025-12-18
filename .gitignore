@@ -1,0 +1,11 @@
+/node_modules
+/dist
+/out
+/src/.next
+release/
+.env
+.env.local
+.env.development
+.env.production
+schedule_db.sqlite
+dev_schedule_db.sqlite
